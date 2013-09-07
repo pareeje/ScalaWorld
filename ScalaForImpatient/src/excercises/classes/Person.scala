@@ -1,12 +1,7 @@
 package excercises.classes
 
-class Person(age : Int){
-	
-	var actualAge = abs(age)
-	
-	def abs(age : Int) = {
-	  if(age<0) 0 else age
-	}
+class Person(ageParameter : Int){
+	var actualAge = if(ageParameter < 0) 0 else ageParameter
 	
 	def seeAge = println(actualAge)
 }
