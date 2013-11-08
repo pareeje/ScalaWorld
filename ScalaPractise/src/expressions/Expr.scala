@@ -22,11 +22,11 @@ object testExpr {
       case Sum(e1, e2) => show(e1) + "+" + show(e2)
       case Prod(e1,e2) => 
         val st1 = e1 match {
-          case Sum(a,b) => "(" + show(a) + "+" + show(b) + ")"
+          case Sum(a,b) => "(" + show(Sum(a,b)) + ")"
           case _ => show(e1)
         }
         val st2 = e2 match {
-          case Sum(a,b) => "(" + show(a) + "+" + show(b) + ")"
+          case Sum(a,b) => "(" + show(Sum(a,b)) + ")"
           case _ => show(e2)
         }
         st1 + "*" + st2
