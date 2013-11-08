@@ -1,10 +1,10 @@
 package expressions
 
 trait Expr {
-	def eval( e : Expr) : Int = {
-	  e match {
+	def eval : Int = {
+	  this match {
 	    case Number(n) => n
-	    case Sum(e1:Number,e2:Number) => eval(e1) + eval(e2)
+	    case Sum(e1,e2) => e1.eval + e2.eval
 	  }
 	}
 	//def show( exp : Expr) : String
@@ -24,4 +24,5 @@ object testExpr {
 
 object test extends App{
   println(testExpr.show(Sum(Number(1),Number(2))))
+  println(Sum(Number(1),Number(3)).eval)
 }
