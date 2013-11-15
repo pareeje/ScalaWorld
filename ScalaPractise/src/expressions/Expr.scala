@@ -44,4 +44,8 @@ object test extends App{
   println(testExpr.show(Sum(Prod(Number(2),Var('x')),Var('y'))))
   println(testExpr.show(Prod(Sum(Number(2),Var('x')),Var('y'))))
   println(testExpr.show(Prod(Sum(Number(2),Var('x')),Sum(Number(3),Var('y')))))
+  
+  println(testExpr.show(Prod(Prod(Sum(Number(2),Var('x')),Sum(Number(3),Var('y'))),Prod(Sum(Number(2),Var('x')),Sum(Number(3),Var('y'))))))
+  println(testExpr.show(Sum(Prod(Sum(Number(2),Var('x')),Sum(Number(3),Var('y'))),Prod(Sum(Number(2),Var('x')),Sum(Number(3),Var('y'))))))
+  println(testExpr.show(Sum(Prod(Sum(Number(2),Var('x')),Sum(Number(3),Var('y'))),Sum(Number(2),Var('x')))))
 }
