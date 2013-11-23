@@ -21,12 +21,8 @@ class TestTryTest extends FunSuite {
   test("Testing Try with 151 should be unhappy") {
 
     val myTry = new TryTest()
-
-    intercept[NumberFormatException] {
-
-      myTry.fetchValue(151)
-
-    }
+    //myTry.fetchValue(151)
+    assert(myTry.fetchValue(151) === "No value", "should get me a no value message")
   }
 
 }
