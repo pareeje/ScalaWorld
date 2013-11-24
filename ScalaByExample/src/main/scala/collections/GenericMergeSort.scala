@@ -4,7 +4,7 @@ import scala.math.Ordering
 
 object GenericMergeSort {
 
-  def msort[T]( xs : List[T])(ord : Ordering[T]) : List[T] = {
+  def msort[T]( xs : List[T])(implicit ord : Ordering[T]) : List[T] = {
     val n = xs.length/2
     if( n == 0) xs // only 1 or 0 elements 
     else {
@@ -18,7 +18,7 @@ object GenericMergeSort {
         }
       }
       val (fst,snd) = xs splitAt n
-      merge(msort(fst)(ord),msort(snd)(ord))
+      merge(msort(fst),msort(snd))
     }
   }
 }
