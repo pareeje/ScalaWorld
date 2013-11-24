@@ -27,7 +27,7 @@ class GenericMergeSortTest extends FunSuite {
     println(sList)
   }
   test("Test with string items List") {
-    val sList = GenericMergeSort.msort(List("xxx", "aaa", "fff", "ddd", "zzz"))((x: String, y: String) => x < y)
+    val sList = GenericMergeSort.msort(List("xxx", "aaa", "fff", "ddd", "zzz"))((x: String, y: String) => x.compareTo(y) < 0)
     println(sList)
   }
 }
