@@ -16,7 +16,8 @@ class AdventureGame {
   }
   
   def isTreasureValue(coins : List[Coin]) : Boolean = {
-    coins.flatMap(coin => List(coin.id)).sum > 5
+    val coinValue = coins.flatMap(coin => List(coin.id)).sum 
+    coinValue < 10
   }
   
   def buyTreasure(coins: List[Coin]): Try[Treasure] = {
@@ -36,4 +37,9 @@ object AdventureGame extends App {
   }*/
   //Better way
   val treasure = coins.flatMap(coins => adventure.buyTreasure(coins))
+  //Now lets see the result
+  treasure match {
+    case Success(s) => println("Happy Ending, you got the treasure" + s)
+    case Failure(t) => println(t.getMessage())
+  }
 }
