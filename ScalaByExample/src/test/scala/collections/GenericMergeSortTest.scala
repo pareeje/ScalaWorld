@@ -6,8 +6,6 @@ import org.scalatest.junit.JUnitRunner
 import org.junit.Ignore
 import org.scalatest.FunSuite
 import monads.trymonad.TryTest
-import org.scalatest.FunSuite
-import org.scalatest.FunSuite
 
 @RunWith(classOf[JUnitRunner])
 class GenericMergeSortTest extends FunSuite {
@@ -29,5 +27,11 @@ class GenericMergeSortTest extends FunSuite {
   test("Test with string items List") {
     val sList = GenericMergeSort.msort(List("xxx", "aaa", "fff", "ddd", "zzz"))
     println(sList)
+  }
+  
+  test("Test with string items"){
+    val initailList = List ("mango","apple","banana")
+    val newList = GenericMergeSort.msort(initailList)
+    assert(newList.head.equalsIgnoreCase("apple"),"should be apple")
   }
 }
