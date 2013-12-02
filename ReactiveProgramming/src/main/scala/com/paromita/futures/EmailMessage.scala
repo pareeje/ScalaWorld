@@ -10,12 +10,17 @@ class EmailMessage {
 
   val msgs = List("Msg1", "Msg2", "Msg3", "Msg4", "Msg5", "Msg6", "Msg7", "Msg8")
   def readMessage(idx: Int): Future[String] = {
-    Thread.sleep(2)
-    Future(msgs(idx))
+    //Thread.sleep(2)
+    future{ 
+      Thread.sleep(2)
+      msgs(idx)
+    }
   }
   def sendMessage(msg: String): Future[Boolean] = {
-    Thread.sleep(10000)
-    Future(msgs.contains(msg))
+    future{
+      Thread.sleep(10000)
+      msgs.contains(msg)
+    }
   }
 }
 
@@ -40,4 +45,6 @@ object EmailMessage extends App {
     case Success(s) => println("Success send of msg")
     case Failure(t) => println("Failed to send msg")
   }
+  
+  Thread.sleep(100000)
 }
